@@ -1,0 +1,5 @@
+xcuserdata
+*.xccheckout
+.DS_Store
+CareemMovies/Pods
+CareemMovies/Podfile.lock
