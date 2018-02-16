@@ -14,6 +14,11 @@
 		48B1C95F2036C4B800FC0D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95E2036C4B800FC0D25 /* Assets.xcassets */; };
 		48B1C9622036C4B800FC0D25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C9602036C4B800FC0D25 /* LaunchScreen.storyboard */; };
 		48B1C96D2036C4B800FC0D25 /* CareemMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */; };
+		48B1C9822036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C97E2036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift */; };
+		48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */; };
+		48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */; };
+		48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */; };
+		48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9872036CC6600FC0D25 /* Coordinator.swift */; };
 		A3A631F2E114EA527E7C2CFF /* Pods_CareemMoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2332410698801B68AC957A /* Pods_CareemMoviesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		48B1C9682036C4B800FC0D25 /* CareemMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareemMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareemMoviesTests.swift; sourceTree = "<group>"; };
 		48B1C96E2036C4B800FC0D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48B1C97E2036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+InterfaceBuilder.swift"; sourceTree = "<group>"; };
+		48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
+		48B1C9872036CC6600FC0D25 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		54B2758E8DCD690F2FDC0173 /* Pods-CareemMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareemMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareemMovies/Pods-CareemMovies.release.xcconfig"; sourceTree = "<group>"; };
 		6A0B16C1DD1A4F3C83E175A1 /* Pods_CareemMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareemMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2332410698801B68AC957A /* Pods_CareemMoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareemMoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,9 +110,15 @@
 		48B1C9562036C4B800FC0D25 /* CareemMovies */ = {
 			isa = PBXGroup;
 			children = (
+				48B1C97D2036CB3500FC0D25 /* View */,
+				48B1C9772036CA9500FC0D25 /* ViewController */,
+				48B1C9862036CC1200FC0D25 /* Coordinator */,
+				48B1C9782036CAA700FC0D25 /* ViewModel */,
+				48B1C9792036CAD600FC0D25 /* Entity */,
+				48B1C97A2036CAEC00FC0D25 /* Service */,
+				48B1C97B2036CAF900FC0D25 /* Extension */,
+				48B1C97C2036CB0500FC0D25 /* Utils */,
 				48B1C9572036C4B800FC0D25 /* AppDelegate.swift */,
-				48B1C9592036C4B800FC0D25 /* ViewController.swift */,
-				48B1C95B2036C4B800FC0D25 /* Main.storyboard */,
 				48B1C95E2036C4B800FC0D25 /* Assets.xcassets */,
 				48B1C9602036C4B800FC0D25 /* LaunchScreen.storyboard */,
 				48B1C9632036C4B800FC0D25 /* Info.plist */,
@@ -117,6 +133,69 @@
 				48B1C96E2036C4B800FC0D25 /* Info.plist */,
 			);
 			path = CareemMoviesTests;
+			sourceTree = "<group>";
+		};
+		48B1C9772036CA9500FC0D25 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				48B1C9592036C4B800FC0D25 /* ViewController.swift */,
+				48B1C95B2036C4B800FC0D25 /* Main.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		48B1C9782036CAA700FC0D25 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48B1C9792036CAD600FC0D25 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		48B1C97A2036CAEC00FC0D25 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		48B1C97B2036CAF900FC0D25 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */,
+				48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */,
+				48B1C97E2036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift */,
+				48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		48B1C97C2036CB0500FC0D25 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		48B1C97D2036CB3500FC0D25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48B1C9862036CC1200FC0D25 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				48B1C9872036CC6600FC0D25 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		81DC3F0EB72CF8F60EC47950 /* Frameworks */ = {
@@ -332,6 +411,11 @@
 			files = (
 				48B1C95A2036C4B800FC0D25 /* ViewController.swift in Sources */,
 				48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */,
+				48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */,
+				48B1C9822036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift in Sources */,
+				48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */,
+				48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */,
+				48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
