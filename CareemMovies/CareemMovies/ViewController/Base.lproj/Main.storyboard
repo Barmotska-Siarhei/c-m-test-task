@@ -31,13 +31,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="ddu-aJ-awE">
                                     <size key="itemSize" width="366" height="331"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieViewCell" id="ghJ-kI-bMo" customClass="MovieViewCell" customModule="CareemMovies" customModuleProvider="target">
-                                        <rect key="frame" x="4.5" y="0.0" width="366" height="331"/>
+                                        <rect key="frame" x="4.5" y="50" width="366" height="331"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="331"/>
@@ -69,7 +69,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.023987676056338027" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.86458313239999995" green="0.95199515599999995" blue="0.95998791989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="hb0-Xv-QpW" firstAttribute="leading" secondItem="ghJ-kI-bMo" secondAttribute="leading" id="18v-RB-HEF"/>
                                             <constraint firstItem="x8D-HO-ztR" firstAttribute="top" secondItem="sah-vi-Wwu" secondAttribute="bottom" constant="4" id="69X-z9-bLv"/>
@@ -92,6 +92,38 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SearchBarView" id="Fuv-vX-9YR" customClass="SearchBarView" customModule="CareemMovies" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <searchBar contentMode="redraw" searchBarStyle="prominent" showsSearchResultsButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ano-sQ-tRe">
+                                            <rect key="frame" x="0.0" y="-3" width="375" height="56"/>
+                                            <color key="barTintColor" red="0.86458313239999995" green="0.95199515599999995" blue="0.95998791989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <scopeButtonTitles>
+                                                <string>Title</string>
+                                                <string>Title</string>
+                                            </scopeButtonTitles>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="delegate" destination="f3h-O0-tsn" id="m3U-Bx-fhj"/>
+                                            </connections>
+                                        </searchBar>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Ano-sQ-tRe" firstAttribute="leading" secondItem="Fuv-vX-9YR" secondAttribute="leading" id="QpE-UH-0FQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ano-sQ-tRe" secondAttribute="trailing" id="RH2-B0-tla"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ano-sQ-tRe" secondAttribute="bottom" constant="-3" id="YR9-78-DcK"/>
+                                        <constraint firstItem="Ano-sQ-tRe" firstAttribute="top" secondItem="Fuv-vX-9YR" secondAttribute="top" constant="-3" id="v2x-9e-NuZ"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="searchBar" destination="Ano-sQ-tRe" id="hlL-DH-Cjm"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="f3h-O0-tsn" id="Sye-ao-E8w"/>
                                     <outlet property="delegate" destination="f3h-O0-tsn" id="BM7-NW-oGx"/>
