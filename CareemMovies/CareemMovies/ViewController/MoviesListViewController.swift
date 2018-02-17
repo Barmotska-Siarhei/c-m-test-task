@@ -10,14 +10,23 @@ import UIKit
 
 class MoviesListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-  
+    
+    fileprivate var model: MoviesListViewModel!
     private var arr = [Int](0...20)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
 }
 
+extension MoviesListViewController {
+    static func create(withViewModel model: MoviesListViewModel) -> MoviesListViewController {
+        let vc = MoviesListViewController.instantiateFromStoryboard(storyboardName: StoryBoardName.main, storyboardId: "MoviesListViewController")
+        vc.model = model
+        return vc
+    }
+}
 
 extension MoviesListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

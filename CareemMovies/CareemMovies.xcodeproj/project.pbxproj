@@ -11,6 +11,9 @@
 		487003CF20383BD50059195F /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003CE20383BD50059195F /* MovieViewCell.swift */; };
 		487003D120383CE00059195F /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D020383CE00059195F /* MoviesListViewController.swift */; };
 		487003D320384BB10059195F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D220384BB10059195F /* SearchBarView.swift */; };
+		487003D5203855490059195F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D4203855490059195F /* AppCoordinator.swift */; };
+		487003D7203858EF0059195F /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D6203858EF0059195F /* MoviesListViewModel.swift */; };
+		487003D920385AEA0059195F /* StoryBoardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D820385AEA0059195F /* StoryBoardName.swift */; };
 		48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9572036C4B800FC0D25 /* AppDelegate.swift */; };
 		48B1C95D2036C4B800FC0D25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95B2036C4B800FC0D25 /* Main.storyboard */; };
 		48B1C95F2036C4B800FC0D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95E2036C4B800FC0D25 /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 		487003CE20383BD50059195F /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		487003D020383CE00059195F /* MoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewController.swift; sourceTree = "<group>"; };
 		487003D220384BB10059195F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		487003D4203855490059195F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		487003D6203858EF0059195F /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
+		487003D820385AEA0059195F /* StoryBoardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardName.swift; sourceTree = "<group>"; };
 		48B1C9542036C4B800FC0D25 /* CareemMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B1C9572036C4B800FC0D25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B1C95C2036C4B800FC0D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 		48B1C9782036CAA700FC0D25 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				487003D6203858EF0059195F /* MoviesListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -183,6 +190,7 @@
 		48B1C97C2036CB0500FC0D25 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				487003D820385AEA0059195F /* StoryBoardName.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				48B1C9872036CC6600FC0D25 /* Coordinator.swift */,
+				487003D4203855490059195F /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -417,11 +426,14 @@
 			files = (
 				48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */,
 				487003D320384BB10059195F /* SearchBarView.swift in Sources */,
+				487003D5203855490059195F /* AppCoordinator.swift in Sources */,
 				48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */,
 				48B1C9822036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift in Sources */,
 				48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */,
 				48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */,
 				48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */,
+				487003D7203858EF0059195F /* MoviesListViewModel.swift in Sources */,
+				487003D920385AEA0059195F /* StoryBoardName.swift in Sources */,
 				487003CF20383BD50059195F /* MovieViewCell.swift in Sources */,
 				487003D120383CE00059195F /* MoviesListViewController.swift in Sources */,
 			);
