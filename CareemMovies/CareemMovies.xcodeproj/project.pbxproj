@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		29642316E939EFEC965A435F /* Pods_CareemMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0B16C1DD1A4F3C83E175A1 /* Pods_CareemMovies.framework */; };
+		487003CF20383BD50059195F /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003CE20383BD50059195F /* MovieViewCell.swift */; };
+		487003D120383CE00059195F /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D020383CE00059195F /* MoviesListViewController.swift */; };
 		48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9572036C4B800FC0D25 /* AppDelegate.swift */; };
-		48B1C95A2036C4B800FC0D25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9592036C4B800FC0D25 /* ViewController.swift */; };
 		48B1C95D2036C4B800FC0D25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95B2036C4B800FC0D25 /* Main.storyboard */; };
 		48B1C95F2036C4B800FC0D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95E2036C4B800FC0D25 /* Assets.xcassets */; };
 		48B1C9622036C4B800FC0D25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C9602036C4B800FC0D25 /* LaunchScreen.storyboard */; };
@@ -34,9 +35,10 @@
 
 /* Begin PBXFileReference section */
 		43EC31722A56AE5B4455065E /* Pods-CareemMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareemMovies.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CareemMovies/Pods-CareemMovies.debug.xcconfig"; sourceTree = "<group>"; };
+		487003CE20383BD50059195F /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
+		487003D020383CE00059195F /* MoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewController.swift; sourceTree = "<group>"; };
 		48B1C9542036C4B800FC0D25 /* CareemMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B1C9572036C4B800FC0D25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48B1C9592036C4B800FC0D25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48B1C95C2036C4B800FC0D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48B1C95E2036C4B800FC0D25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48B1C9612036C4B800FC0D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		48B1C9772036CA9500FC0D25 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				48B1C9592036C4B800FC0D25 /* ViewController.swift */,
+				487003D020383CE00059195F /* MoviesListViewController.swift */,
 				48B1C95B2036C4B800FC0D25 /* Main.storyboard */,
 			);
 			path = ViewController;
@@ -186,6 +188,7 @@
 		48B1C97D2036CB3500FC0D25 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				487003CE20383BD50059195F /* MovieViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,13 +412,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48B1C95A2036C4B800FC0D25 /* ViewController.swift in Sources */,
 				48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */,
 				48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */,
 				48B1C9822036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift in Sources */,
 				48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */,
 				48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */,
 				48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */,
+				487003CF20383BD50059195F /* MovieViewCell.swift in Sources */,
+				487003D120383CE00059195F /* MoviesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
