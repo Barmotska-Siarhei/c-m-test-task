@@ -19,6 +19,8 @@
 		487003DF20388CC50059195F /* TmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003DE20388CC50059195F /* TmdbAPI.swift */; };
 		487003E12038E1590059195F /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E02038E1590059195F /* MovieCellViewModel.swift */; };
 		487003E32038FA250059195F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E22038FA250059195F /* Constants.swift */; };
+		487003E5203996EF0059195F /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E4203996EF0059195F /* ResponseParser.swift */; };
+		487003E7203997900059195F /* ResponseJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E6203997900059195F /* ResponseJSONParser.swift */; };
 		48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9572036C4B800FC0D25 /* AppDelegate.swift */; };
 		48B1C95D2036C4B800FC0D25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95B2036C4B800FC0D25 /* Main.storyboard */; };
 		48B1C95F2036C4B800FC0D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95E2036C4B800FC0D25 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		487003DE20388CC50059195F /* TmdbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPI.swift; sourceTree = "<group>"; };
 		487003E02038E1590059195F /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		487003E22038FA250059195F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		487003E4203996EF0059195F /* ResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseParser.swift; sourceTree = "<group>"; };
+		487003E6203997900059195F /* ResponseJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseJSONParser.swift; sourceTree = "<group>"; };
 		48B1C9542036C4B800FC0D25 /* CareemMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B1C9572036C4B800FC0D25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48B1C95C2036C4B800FC0D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,7 +190,9 @@
 			isa = PBXGroup;
 			children = (
 				487003DA20388B780059195F /* FetchRequester.swift */,
+				487003E4203996EF0059195F /* ResponseParser.swift */,
 				487003DE20388CC50059195F /* TmdbAPI.swift */,
+				487003E6203997900059195F /* ResponseJSONParser.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -451,11 +457,13 @@
 				48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */,
 				487003D7203858EF0059195F /* MoviesListViewModel.swift in Sources */,
 				487003D920385AEA0059195F /* StoryBoardName.swift in Sources */,
+				487003E7203997900059195F /* ResponseJSONParser.swift in Sources */,
 				487003CF20383BD50059195F /* MovieViewCell.swift in Sources */,
 				487003DF20388CC50059195F /* TmdbAPI.swift in Sources */,
 				487003DB20388B780059195F /* FetchRequester.swift in Sources */,
 				487003D120383CE00059195F /* MoviesListViewController.swift in Sources */,
 				487003E12038E1590059195F /* MovieCellViewModel.swift in Sources */,
+				487003E5203996EF0059195F /* ResponseParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

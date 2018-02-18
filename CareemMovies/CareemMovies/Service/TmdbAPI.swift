@@ -12,11 +12,22 @@ import Alamofire
 class TmdbAPI: FetchRequester {
     private let urlTemplate = "http://api.themoviedb.org/3/search/movie?api_key=%@&query=%@&page=%d"
     
+    private let responseParser: ResponseParser
+    
+    init(responseParser: ResponseParser) {
+        self.responseParser = responseParser
+    }
+    
     func getMoviesList(by name: String, on page: Int) -> [Movie] {
         let url = tmdbUrl(by: name, on: page)
       
-        Alamofire.request(url).responseJSON { (response) in
-            print(response)
+        Alamofire.request(url).responseData {[weak self] (response) in
+            guard let this = self else {
+                return
+            }
+            
+            let result = this.responseParser.parse(data: response.data)
+            print(result)
         }
         
         return []
