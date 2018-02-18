@@ -23,7 +23,8 @@ class AppCoordinator: Coordinator <Void>{
             return
         }
         
-        let model = MoviesListViewModel()
+        let fetchAPI = TmdbAPI()
+        let model = MoviesListViewModel(fetchAPI: fetchAPI)
         let moviesVC = MoviesListViewController.create(withViewModel: model)
         nc.setViewControllers([moviesVC], animated: true)        
     }

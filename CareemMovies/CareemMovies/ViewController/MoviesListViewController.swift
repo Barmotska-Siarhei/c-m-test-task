@@ -7,17 +7,36 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MoviesListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     fileprivate var model: MoviesListViewModel!
-    private var arr = [Int](0...20)
+    private let disposeBag = DisposeBag()
+    
+    private var arr: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUIBindings()
+        model.start()
     }
-
+    
+    //MARK: - Private
+    
+    private func setupUIBindings() {
+        model.movies
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] (movies) in
+               self.arr = movies
+               self.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+    }
 }
 
 extension MoviesListViewController {
@@ -35,8 +54,9 @@ extension MoviesListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieViewCell.identifier, for: indexPath) as? MovieViewCell {
-            
-            cell.nameLabel.text = "row \(arr[indexPath.row])"
+            let movie = arr[indexPath.row]
+            let model = MovieCellViewModel(movie: movie)
+            cell.apply(model: model)
             return cell
         }
         
@@ -47,7 +67,16 @@ extension MoviesListViewController: UICollectionViewDataSource {
         
         switch kind {
         case UICollectionElementKindSectionHeader:
-            return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: SearchBarView.identifier, for: indexPath)
+            if let searchBar = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier:
+                SearchBarView.identifier, for: indexPath) as? SearchBarView {
+              
+                searchBar.searchBar.rx.searchButtonClicked
+                    .withLatestFrom(searchBar.searchBar.rx.text)
+                    .bind(to: self.model.filmName)
+                    .disposed(by: disposeBag)
+                
+                return searchBar
+            }
             
         default:
             break
@@ -60,21 +89,6 @@ extension MoviesListViewController: UICollectionViewDataSource {
 
 
 extension MoviesListViewController: UICollectionViewDelegate {
-    
-}
-
-
-extension MoviesListViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            collectionView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            collectionView.reloadData()
-        }
-    }
     
 }
 

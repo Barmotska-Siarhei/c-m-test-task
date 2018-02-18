@@ -55,7 +55,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hb0-Xv-QpW">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hb0-Xv-QpW">
                                                     <rect key="frame" x="0.0" y="66" width="366" height="219.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hb0-Xv-QpW" secondAttribute="height" multiplier="5:3" id="Ev3-0c-4Kb"/>
@@ -109,9 +109,6 @@
                                                     <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <outlet property="delegate" destination="f3h-O0-tsn" id="m3U-Bx-fhj"/>
-                                            </connections>
                                         </searchBar>
                                     </subviews>
                                     <constraints>
