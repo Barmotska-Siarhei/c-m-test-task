@@ -8,6 +8,16 @@
 
 import Foundation
 
+enum FetchResult {
+    case data(MoviesResponse)
+    case error(FetchError)
+}
+
+enum FetchError {
+    case ParseError(String)
+}
+
 protocol FetchRequester {
-    func getMoviesList(by name: String, on page: Int) -> [Movie]
+    func fetchMoviesList(by name: String, on page: Int)
+    func set(onCompleted callback: ((FetchResult) -> ())?) -> FetchRequester
 }

@@ -16,7 +16,8 @@ class MovieCellViewModel {
     let name = Variable<String?>(nil)
     let year = Variable<String?>(nil)
     let description = Variable<String?>(nil)
-    // placeholder could be used
+   
+    // Placeholder image could be used as initial value
     let image = Variable<UIImage?>(nil)
     
     init(movie: Movie) {
@@ -30,7 +31,7 @@ class MovieCellViewModel {
 
 private extension MovieCellViewModel {
     private func downloadImage() {
-        guard let url = movie.imagePath,
+        guard let url = movie.fullImagePath(for: .w500),
               let imageURL = URL(string: url) else {
             return
         }

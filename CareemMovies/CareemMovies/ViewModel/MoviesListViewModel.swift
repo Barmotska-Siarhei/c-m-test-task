@@ -23,7 +23,7 @@ class MoviesListViewModel {
         self.fetchAPI = fetchAPI
     }
     
-    func start() {
+    func startMovieFetchDaemon() {
         
         filmName.asObservable()
         .throttle(0.5, scheduler: MainScheduler.instance)
@@ -32,12 +32,20 @@ class MoviesListViewModel {
         .distinctUntilChanged()
         .flatMapLatest({(name) in
             Observable<[Movie]>.create({[unowned self] (observer) -> Disposable in
-                let movies = self.fetchAPI.getMoviesList(by: name, on: self.pageNumber.value)
-                observer.onNext(movies)
-                observer.onCompleted()
+                let _ = self.fetchAPI.set(onCompleted: { (result) in
+                    switch result {
+                    case .data(let response):
+                        observer.onNext(response.movies)
+                    case .error(let error):
+                        //observer.onError(Error())
+                        break
+                    }
+                })
+                self.fetchAPI.fetchMoviesList(by: name, on: self.pageNumber.value)
                 return Disposables.create()
             })
         })
+        .observeOn(MainScheduler.instance)
         .subscribe(onNext: {[unowned self] (movies) in
             self.moviesArray.onNext(movies)
          })

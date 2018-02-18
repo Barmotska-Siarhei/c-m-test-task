@@ -22,7 +22,7 @@ class MoviesListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUIBindings()
-        model.start()
+        model.startMovieFetchDaemon()
     }
     
     //MARK: - Private
@@ -35,7 +35,7 @@ class MoviesListViewController: UIViewController {
                self.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
-        
+
     }
 }
 

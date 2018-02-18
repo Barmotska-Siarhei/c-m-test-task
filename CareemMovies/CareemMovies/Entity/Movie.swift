@@ -28,10 +28,27 @@ struct Movie: Codable {
     let imagePath: String?
     let movieDescription: String?
     
+    enum MoviePosterSize: String {
+        case w92
+        case w185
+        case w500
+        case w780
+    }
+    
     enum CodingKeys: String, CodingKey {
         case name = "original_title"
         case year = "release_date"
         case imagePath = "poster_path"
         case movieDescription = "overview"
+    }
+}
+
+extension Movie {
+    func fullImagePath(for size: MoviePosterSize) -> String? {
+        guard let concreteImage = imagePath else {
+            return nil
+        }
+        
+        return "http://image.tmdb.org/t/p/" +  size.rawValue + concreteImage
     }
 }
