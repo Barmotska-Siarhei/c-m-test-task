@@ -22,17 +22,16 @@ class MoviesListViewController: UIViewController {
         super.viewDidLoad()
         
         setupUIBindings()
-        model.startMovieFetchDaemon()
+        model.startMovieFetcherDaemon()
     }
     
     //MARK: - Private
     
     private func setupUIBindings() {
         model.movies
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [unowned self] (movies) in
-               self.arr = movies
-               self.collectionView.reloadData()
+            .drive(onNext: { [unowned self] (movies) in
+                self.arr = movies
+                self.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
 
@@ -53,6 +52,8 @@ extension MoviesListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        //Display Movie cell
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieViewCell.identifier, for: indexPath) as? MovieViewCell {
             let movie = arr[indexPath.row]
             let model = MovieCellViewModel(movie: movie)
@@ -89,6 +90,9 @@ extension MoviesListViewController: UICollectionViewDataSource {
 
 
 extension MoviesListViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        //Lazy pagination support. Model could fetch next page if it is possible
+        model.displayedItem.value = indexPath.row
+    }
 }
 

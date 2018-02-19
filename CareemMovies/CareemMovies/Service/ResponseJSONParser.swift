@@ -20,7 +20,9 @@ class ResponseJSONParser: ResponseParser {
             let result = try decoder.decode(MoviesResponse.self, from: responseData)
             return .data(result)
         } catch {
-            print("Invalid response data")
+            if let json = try? JSONSerialization.jsonObject(with: responseData, options: []) {
+                print("Invalid response data :", json)
+            }
             return .error(.InvalidData)
         }
     }

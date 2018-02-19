@@ -8,47 +8,67 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class MoviesListViewModel {
     var filmName = PublishSubject<String?>()
-    var pageNumber = Variable<Int>(1)
-    var movies:Observable<[Movie]> {return self.moviesArray.asObservable()}
+    var displayedItem = Variable<Int>(0)
+    var movies:Driver<[Movie]> {return self.moviesArray.asDriver()}
+    
+    private var pageNumber = Variable<Int>(1)
+    private var fetchedPageNumber = Variable<Int>(0)
+    private var totalPages = Variable<Int>(0)
+    private var totalMovies = Variable<Int>(0)
     
     private var fetchAPI: FetchRequester
     private let disposeBag = DisposeBag()
-    private var moviesArray = PublishSubject<[Movie]>()
-    
+    private var moviesArray = Variable<[Movie]>([])
  
     init (fetchAPI: FetchRequester) {
         self.fetchAPI = fetchAPI
     }
     
-    func startMovieFetchDaemon() {
+    func startMovieFetcherDaemon() {
         
-        filmName.asObservable()
-        .throttle(0.5, scheduler: MainScheduler.instance)
-        .map{ $0 ?? "" }
-        .filter{ $0 != ""}
-        .distinctUntilChanged()
-        .flatMapLatest({(name) in
-            Observable<[Movie]>.create({[unowned self] (observer) -> Disposable in
-                let _ = self.fetchAPI.set(onCompleted: { (result) in
-                    switch result {
-                    case .data(let response):
-                        observer.onNext(response.movies)
-                    case .error(let error):
-                        //observer.onError(Error())
-                        break
-                    }
-                })
-                self.fetchAPI.fetchMoviesList(by: name, on: self.pageNumber.value)
-                return Disposables.create()
+        let newMovieFetch = filmName.asObservable()
+            .throttle(0.3, scheduler: MainScheduler.instance)
+            .map{ $0 ?? "" }
+            .filter{ $0 != ""}
+            .distinctUntilChanged()
+            .share(replay: 1)
+        
+        newMovieFetch.subscribe(onNext: {[unowned self]  (_) in
+                self.moviesArray.value = []
+                self.totalPages.value = 0
+                self.totalMovies.value = 0
+                self.pageNumber.value = 1
             })
-        })
-        .observeOn(MainScheduler.instance)
-        .subscribe(onNext: {[unowned self] (movies) in
-            self.moviesArray.onNext(movies)
-         })
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
+        
+        // New fetch (combination Name + Page)
+        Observable
+            .combineLatest(newMovieFetch, pageNumber.asObservable()) {
+                (name:$0, number:$1)
+            }
+            .flatMapLatest { [unowned self] (pair) in
+                self.fetchAPI.fetchMoviesList(by: pair.name, on: pair.number)
+            }
+            .subscribe(onNext: {[unowned self] (response) in
+                self.totalPages.value = response.totalPages
+                self.totalMovies.value = response.totalResults
+                self.moviesArray.value += response.movies
+            })
+            .disposed(by: disposeBag)
+        
+        // Pagination support (fetch new page if last fetched item is shown)
+        displayedItem.asObservable()
+            .distinctUntilChanged()
+            .filter{ $0 == self.moviesArray.value.count - 1}
+            .subscribe(onNext: {[unowned self] (row) in
+                if self.pageNumber.value < self.totalPages.value {
+                    self.pageNumber.value += 1
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }

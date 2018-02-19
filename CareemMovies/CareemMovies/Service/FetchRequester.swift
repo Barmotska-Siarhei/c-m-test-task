@@ -7,17 +7,12 @@
 //
 
 import Foundation
+import RxSwift
 
-enum FetchResult {
-    case data(MoviesResponse)
-    case error(FetchError)
-}
-
-enum FetchError {
-    case ParseError(String)
+enum FetchError: Error {
+    case parseError(String)
 }
 
 protocol FetchRequester {
-    func fetchMoviesList(by name: String, on page: Int)
-    func set(onCompleted callback: ((FetchResult) -> ())?) -> FetchRequester
+    func fetchMoviesList(by name: String, on page: Int) -> Observable<MoviesResponse>
 }

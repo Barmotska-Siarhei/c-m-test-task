@@ -16,9 +16,9 @@ class MovieCellViewModel {
     let name = Variable<String?>(nil)
     let year = Variable<String?>(nil)
     let description = Variable<String?>(nil)
-   
-    // Placeholder image could be used as initial value
-    let image = Variable<UIImage?>(nil)
+
+    let image = Variable<UIImage?>(placeholder)
+    static private let placeholder = UIImage(named:"no_image")
     
     init(movie: Movie) {
         self.movie = movie

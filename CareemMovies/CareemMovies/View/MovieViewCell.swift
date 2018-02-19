@@ -26,6 +26,7 @@ final class MovieViewCell: UICollectionViewCell {
         let bag = DisposeBag()
         disposeBag = bag
         
+        // bind movie details from model to cell UI controls
         model.name.asObservable()
             .bind(to: nameLabel.rx.text)
             .disposed(by: bag)
@@ -34,16 +35,37 @@ final class MovieViewCell: UICollectionViewCell {
             .bind(to: yearLabel.rx.text)
             .disposed(by: bag)
         
-        model.image.asObservable()
-            .bind(to: posterView.rx.image)
-            .disposed(by: bag)
-        
         model.description.asObservable()
             .bind(to: descriptionLabel.rx.text)
+            .disposed(by: bag)
+        
+        //show placeholder immidiatly
+        model.image.asObservable()
+            .take(1)
+            .subscribe(onNext: {[weak self] (image) in
+                self?.posterView.image = image
+            })
+            .disposed(by: bag)
+        
+        //show poster image with animation
+        model.image.asObservable()
+            .skip(1)
+            .subscribe(onNext: {[weak self] (image) in
+                guard let this = self else {
+                    return
+                }
+                
+                UIView.transition(with: this.posterView,
+                                  duration: 0.3,
+                                  options: .transitionCrossDissolve,
+                                  animations: { this.posterView.image = image },
+                                  completion: nil)
+            })
             .disposed(by: bag)
     }
     
     override func prepareForReuse() {
+        //unsubscribe before cell reusage
         disposeBag = nil
     }
 }
