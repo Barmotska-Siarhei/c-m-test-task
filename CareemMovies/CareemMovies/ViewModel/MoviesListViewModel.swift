@@ -82,4 +82,8 @@ class MoviesListViewModel {
             })
             .disposed(by: disposeBag)
     }
+    
+    func suggestions() -> [String] {
+        return persistentStore.allObjects()
+    }
 }

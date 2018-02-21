@@ -70,7 +70,9 @@ extension MoviesListViewController: UICollectionViewDataSource {
         case UICollectionElementKindSectionHeader:
             if let searchBar = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier:
                 SearchBarView.identifier, for: indexPath) as? SearchBarView {
-              
+                
+                searchBar.use(suggestions: model.suggestions())
+                
                 searchBar.searchBar.rx.searchButtonClicked
                     .withLatestFrom(searchBar.searchBar.rx.text)
                     .bind(to: self.model.filmName)

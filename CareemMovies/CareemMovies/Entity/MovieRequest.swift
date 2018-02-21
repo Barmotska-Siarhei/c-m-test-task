@@ -16,4 +16,8 @@ class MovieRequest: Object {
         self.init()
         self.name = name
     }
+    
+    override class func primaryKey() -> String? {
+        return "name"
+    }
 }

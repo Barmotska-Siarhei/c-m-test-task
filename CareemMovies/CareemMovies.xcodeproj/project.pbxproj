@@ -36,6 +36,7 @@
 		48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */; };
 		48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9872036CC6600FC0D25 /* Coordinator.swift */; };
 		48E1380A203C1DE50054CA09 /* AnyPersistentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */; };
+		48E13856203D6A610054CA09 /* SuggestionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13855203D6A600054CA09 /* SuggestionsListView.swift */; };
 		A3A631F2E114EA527E7C2CFF /* Pods_CareemMoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2332410698801B68AC957A /* Pods_CareemMoviesTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		48B1C9872036CC6600FC0D25 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPersistentProvider.swift; sourceTree = "<group>"; };
+		48E13855203D6A600054CA09 /* SuggestionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsListView.swift; sourceTree = "<group>"; };
 		54B2758E8DCD690F2FDC0173 /* Pods-CareemMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareemMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareemMovies/Pods-CareemMovies.release.xcconfig"; sourceTree = "<group>"; };
 		6A0B16C1DD1A4F3C83E175A1 /* Pods_CareemMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareemMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E2332410698801B68AC957A /* Pods_CareemMoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CareemMoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +238,7 @@
 			children = (
 				487003CE20383BD50059195F /* MovieViewCell.swift */,
 				487003D220384BB10059195F /* SearchBarView.swift */,
+				48E13855203D6A600054CA09 /* SuggestionsListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				487003D120383CE00059195F /* MoviesListViewController.swift in Sources */,
 				487003E12038E1590059195F /* MovieCellViewModel.swift in Sources */,
 				487003E5203996EF0059195F /* ResponseParser.swift in Sources */,
+				48E13856203D6A610054CA09 /* SuggestionsListView.swift in Sources */,
 				48114F9C203B8731007DC5FE /* MovieRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
