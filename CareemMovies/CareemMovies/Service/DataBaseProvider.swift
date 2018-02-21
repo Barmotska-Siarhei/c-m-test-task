@@ -17,8 +17,6 @@ import RealmSwift
 class DataBaseProvider: PersistentProvider {
     typealias ItemType = String
     
-    private var maxCount: Int = 10
-    
     func save(object: String) {
         let realm = RealmProvider.realm()
         try! realm.write {

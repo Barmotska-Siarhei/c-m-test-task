@@ -63,7 +63,8 @@ class TmdbAPI: FetchRequester {
     //MARK: - Private
     
     private func tmdbUrl(by name: String, on page: Int) -> String {
-        return String(format: urlTemplate, TMDB.apiKey, name, page)
+        let webname = name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? name
+        return String(format: urlTemplate, TMDB.apiKey, webname, page)
     }
     
 }

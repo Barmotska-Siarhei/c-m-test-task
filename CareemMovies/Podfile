@@ -12,6 +12,7 @@ target 'CareemMovies' do
   target 'CareemMoviesTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Nocilla'
   end
 
 end

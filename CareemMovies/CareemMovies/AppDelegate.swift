@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // avoid launching host app during unit-tests
+        if ProcessInfo.processInfo.environment["XCInjectBundleInto"] != nil {
+            return false
+        }
+        
         setupRootVC()
         return true
     }

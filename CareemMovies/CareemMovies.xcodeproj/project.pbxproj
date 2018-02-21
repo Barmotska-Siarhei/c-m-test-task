@@ -29,10 +29,41 @@
 		48B1C95D2036C4B800FC0D25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95B2036C4B800FC0D25 /* Main.storyboard */; };
 		48B1C95F2036C4B800FC0D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95E2036C4B800FC0D25 /* Assets.xcassets */; };
 		48B1C9622036C4B800FC0D25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C9602036C4B800FC0D25 /* LaunchScreen.storyboard */; };
-		48B1C96D2036C4B800FC0D25 /* CareemMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */; };
 		48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */; };
 		48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */; };
 		48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9872036CC6600FC0D25 /* Coordinator.swift */; };
+		48D024C1203E2B8F007C9FFE /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D024C0203E2B8F007C9FFE /* CoordinatorTests.swift */; };
+		48D024C2203E2E1C007C9FFE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9872036CC6600FC0D25 /* Coordinator.swift */; };
+		48D024C3203E2E54007C9FFE /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D4203855490059195F /* AppCoordinator.swift */; };
+		48D024C4203E2E8E007C9FFE /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D6203858EF0059195F /* MoviesListViewModel.swift */; };
+		48D024C5203E2E91007C9FFE /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E02038E1590059195F /* MovieCellViewModel.swift */; };
+		48D024C6203E2E95007C9FFE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003DC20388BCB0059195F /* Movie.swift */; };
+		48D024C8203E2E9E007C9FFE /* FetchRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003DA20388B780059195F /* FetchRequester.swift */; };
+		48D024C9203E2E9E007C9FFE /* TmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003DE20388CC50059195F /* TmdbAPI.swift */; };
+		48D024CA203E2E9E007C9FFE /* ResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E4203996EF0059195F /* ResponseParser.swift */; };
+		48D024CB203E2E9E007C9FFE /* ResponseJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E6203997900059195F /* ResponseJSONParser.swift */; };
+		48D024CC203E2E9E007C9FFE /* PersistentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48114F97203B827C007DC5FE /* PersistentProvider.swift */; };
+		48D024CD203E2E9E007C9FFE /* AnyPersistentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */; };
+		48D024CE203E2E9E007C9FFE /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48114F99203B84C4007DC5FE /* DataBaseProvider.swift */; };
+		48D024CF203E2E9E007C9FFE /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48114F95203B8214007DC5FE /* RealmProvider.swift */; };
+		48D024D0203E2EA3007C9FFE /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */; };
+		48D024D1203E2EA3007C9FFE /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */; };
+		48D024D2203E2EA7007C9FFE /* StoryBoardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D820385AEA0059195F /* StoryBoardName.swift */; };
+		48D024D3203E2EAB007C9FFE /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003CE20383BD50059195F /* MovieViewCell.swift */; };
+		48D024D4203E2EAB007C9FFE /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D220384BB10059195F /* SearchBarView.swift */; };
+		48D024D5203E2EAB007C9FFE /* SuggestionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13855203D6A600054CA09 /* SuggestionsListView.swift */; };
+		48D024D6203E2EAE007C9FFE /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003D020383CE00059195F /* MoviesListViewController.swift */; };
+		48D024D7203E2F66007C9FFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487003E22038FA250059195F /* Constants.swift */; };
+		48D02501203E33B4007C9FFE /* MovieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48114F9B203B8731007DC5FE /* MovieRequest.swift */; };
+		48D02503203E37E8007C9FFE /* RealmProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02502203E37E8007C9FFE /* RealmProviderTests.swift */; };
+		48D02511203E9811007C9FFE /* MoviesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02510203E9811007C9FFE /* MoviesListViewModelTests.swift */; };
+		48D02513203E9949007C9FFE /* DummyTmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02512203E9949007C9FFE /* DummyTmdbAPI.swift */; };
+		48D02515203E9974007C9FFE /* DummyDataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02514203E9974007C9FFE /* DummyDataBaseProvider.swift */; };
+		48D02518203E9CE4007C9FFE /* DummyMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02517203E9CE4007C9FFE /* DummyMovie.swift */; };
+		48D02520203EA798007C9FFE /* MovieCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D0251F203EA798007C9FFE /* MovieCellViewModelTests.swift */; };
+		48D02522203EAA66007C9FFE /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02521203EAA66007C9FFE /* MovieTests.swift */; };
+		48D02524203EAC70007C9FFE /* ResponseJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02523203EAC70007C9FFE /* ResponseJSONParserTests.swift */; };
+		48D0252A203EC55B007C9FFE /* TmdbAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D02529203EC55B007C9FFE /* TmdbAPITests.swift */; };
 		48E1380A203C1DE50054CA09 /* AnyPersistentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */; };
 		48E13856203D6A610054CA09 /* SuggestionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13855203D6A600054CA09 /* SuggestionsListView.swift */; };
 		A3A631F2E114EA527E7C2CFF /* Pods_CareemMoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2332410698801B68AC957A /* Pods_CareemMoviesTests.framework */; };
@@ -74,11 +105,22 @@
 		48B1C9612036C4B800FC0D25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48B1C9632036C4B800FC0D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48B1C9682036C4B800FC0D25 /* CareemMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareemMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareemMoviesTests.swift; sourceTree = "<group>"; };
 		48B1C96E2036C4B800FC0D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		48B1C9872036CC6600FC0D25 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		48D024C0203E2B8F007C9FFE /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
+		48D02502203E37E8007C9FFE /* RealmProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProviderTests.swift; sourceTree = "<group>"; };
+		48D02506203E3EC0007C9FFE /* CareemMoviesTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CareemMoviesTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		48D02509203E4019007C9FFE /* CareemMovies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CareemMovies-Bridging-Header.h"; sourceTree = "<group>"; };
+		48D02510203E9811007C9FFE /* MoviesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModelTests.swift; sourceTree = "<group>"; };
+		48D02512203E9949007C9FFE /* DummyTmdbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTmdbAPI.swift; sourceTree = "<group>"; };
+		48D02514203E9974007C9FFE /* DummyDataBaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDataBaseProvider.swift; sourceTree = "<group>"; };
+		48D02517203E9CE4007C9FFE /* DummyMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyMovie.swift; sourceTree = "<group>"; };
+		48D0251F203EA798007C9FFE /* MovieCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModelTests.swift; sourceTree = "<group>"; };
+		48D02521203EAA66007C9FFE /* MovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
+		48D02523203EAC70007C9FFE /* ResponseJSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseJSONParserTests.swift; sourceTree = "<group>"; };
+		48D02529203EC55B007C9FFE /* TmdbAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbAPITests.swift; sourceTree = "<group>"; };
 		48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPersistentProvider.swift; sourceTree = "<group>"; };
 		48E13855203D6A600054CA09 /* SuggestionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsListView.swift; sourceTree = "<group>"; };
 		54B2758E8DCD690F2FDC0173 /* Pods-CareemMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CareemMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-CareemMovies/Pods-CareemMovies.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +193,7 @@
 				48B1C97B2036CAF900FC0D25 /* Extension */,
 				48B1C97C2036CB0500FC0D25 /* Utils */,
 				48B1C9572036C4B800FC0D25 /* AppDelegate.swift */,
+				48D02509203E4019007C9FFE /* CareemMovies-Bridging-Header.h */,
 				487003E22038FA250059195F /* Constants.swift */,
 				48B1C95E2036C4B800FC0D25 /* Assets.xcassets */,
 				48B1C9602036C4B800FC0D25 /* LaunchScreen.storyboard */,
@@ -162,8 +205,16 @@
 		48B1C96B2036C4B800FC0D25 /* CareemMoviesTests */ = {
 			isa = PBXGroup;
 			children = (
-				48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */,
+				48D024C0203E2B8F007C9FFE /* CoordinatorTests.swift */,
+				48D02510203E9811007C9FFE /* MoviesListViewModelTests.swift */,
+				48D0251F203EA798007C9FFE /* MovieCellViewModelTests.swift */,
+				48D02521203EAA66007C9FFE /* MovieTests.swift */,
+				48D02529203EC55B007C9FFE /* TmdbAPITests.swift */,
+				48D02523203EAC70007C9FFE /* ResponseJSONParserTests.swift */,
+				48D02502203E37E8007C9FFE /* RealmProviderTests.swift */,
+				48D02516203E9CA8007C9FFE /* Helper */,
 				48B1C96E2036C4B800FC0D25 /* Info.plist */,
+				48D02506203E3EC0007C9FFE /* CareemMoviesTests-Bridging-Header.h */,
 			);
 			path = CareemMoviesTests;
 			sourceTree = "<group>";
@@ -246,6 +297,16 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		48D02516203E9CA8007C9FFE /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				48D02512203E9949007C9FFE /* DummyTmdbAPI.swift */,
+				48D02514203E9974007C9FFE /* DummyDataBaseProvider.swift */,
+				48D02517203E9CE4007C9FFE /* DummyMovie.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		81DC3F0EB72CF8F60EC47950 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,10 +372,12 @@
 				TargetAttributes = {
 					48B1C9532036C4B800FC0D25 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					48B1C9672036C4B800FC0D25 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 48B1C9532036C4B800FC0D25;
 					};
@@ -487,7 +550,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48B1C96D2036C4B800FC0D25 /* CareemMoviesTests.swift in Sources */,
+				48D02518203E9CE4007C9FFE /* DummyMovie.swift in Sources */,
+				48D02524203EAC70007C9FFE /* ResponseJSONParserTests.swift in Sources */,
+				48D0252A203EC55B007C9FFE /* TmdbAPITests.swift in Sources */,
+				48D02513203E9949007C9FFE /* DummyTmdbAPI.swift in Sources */,
+				48D024C6203E2E95007C9FFE /* Movie.swift in Sources */,
+				48D024C4203E2E8E007C9FFE /* MoviesListViewModel.swift in Sources */,
+				48D024C5203E2E91007C9FFE /* MovieCellViewModel.swift in Sources */,
+				48D024C3203E2E54007C9FFE /* AppCoordinator.swift in Sources */,
+				48D024D5203E2EAB007C9FFE /* SuggestionsListView.swift in Sources */,
+				48D024C8203E2E9E007C9FFE /* FetchRequester.swift in Sources */,
+				48D024D1203E2EA3007C9FFE /* UIViewController+Storyboard.swift in Sources */,
+				48D024D2203E2EA7007C9FFE /* StoryBoardName.swift in Sources */,
+				48D024CE203E2E9E007C9FFE /* DataBaseProvider.swift in Sources */,
+				48D024C1203E2B8F007C9FFE /* CoordinatorTests.swift in Sources */,
+				48D024CD203E2E9E007C9FFE /* AnyPersistentProvider.swift in Sources */,
+				48D024D6203E2EAE007C9FFE /* MoviesListViewController.swift in Sources */,
+				48D024D4203E2EAB007C9FFE /* SearchBarView.swift in Sources */,
+				48D02515203E9974007C9FFE /* DummyDataBaseProvider.swift in Sources */,
+				48D02522203EAA66007C9FFE /* MovieTests.swift in Sources */,
+				48D02511203E9811007C9FFE /* MoviesListViewModelTests.swift in Sources */,
+				48D024CC203E2E9E007C9FFE /* PersistentProvider.swift in Sources */,
+				48D024D0203E2EA3007C9FFE /* String+Localization.swift in Sources */,
+				48D02520203EA798007C9FFE /* MovieCellViewModelTests.swift in Sources */,
+				48D024CF203E2E9E007C9FFE /* RealmProvider.swift in Sources */,
+				48D024C9203E2E9E007C9FFE /* TmdbAPI.swift in Sources */,
+				48D024CB203E2E9E007C9FFE /* ResponseJSONParser.swift in Sources */,
+				48D02503203E37E8007C9FFE /* RealmProviderTests.swift in Sources */,
+				48D024D3203E2EAB007C9FFE /* MovieViewCell.swift in Sources */,
+				48D024CA203E2E9E007C9FFE /* ResponseParser.swift in Sources */,
+				48D024C2203E2E1C007C9FFE /* Coordinator.swift in Sources */,
+				48D024D7203E2F66007C9FFE /* Constants.swift in Sources */,
+				48D02501203E33B4007C9FFE /* MovieRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,12 +727,15 @@
 			baseConfigurationReference = 43EC31722A56AE5B4455065E /* Pods-CareemMovies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CareemMovies/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barmotska.siarhei.CareemMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CareemMovies/CareemMovies-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -649,12 +746,14 @@
 			baseConfigurationReference = 54B2758E8DCD690F2FDC0173 /* Pods-CareemMovies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CareemMovies/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barmotska.siarhei.CareemMovies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CareemMovies/CareemMovies-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -665,12 +764,14 @@
 			baseConfigurationReference = 8E6A66BEB1EDBD2C6BAAABCA /* Pods-CareemMoviesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CareemMoviesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barmotska.siarhei.CareemMoviesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CareemMoviesTests/CareemMoviesTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CareemMovies.app/CareemMovies";
@@ -682,12 +783,13 @@
 			baseConfigurationReference = D72EC16D98ACBBF3B2BD3DBC /* Pods-CareemMoviesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CareemMoviesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.barmotska.siarhei.CareemMoviesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CareemMoviesTests/CareemMoviesTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CareemMovies.app/CareemMovies";
