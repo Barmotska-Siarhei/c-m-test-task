@@ -41,11 +41,14 @@ class MoviesListViewController: UIViewController {
         //them in AlertView
         model.movies
             .observeOn(MainScheduler.instance)
-            .subscribe( onNext: { [unowned self] (movies) in
-                    self.movies = movies
-                    self.collectionView.reloadData()
-                }, onError: { [unowned self] (error) in
-                    self.showAlert(with: error.localizedDescription)
+            .subscribe( onNext: { [unowned self] (result) in
+                    switch result {
+                    case .error(let error):
+                        self.showAlert(with: error.localizedDescription)
+                    case .movie(let movies):
+                        self.movies = movies
+                        self.collectionView.reloadData()
+                    }
                 })
             .disposed(by: disposeBag)
     }

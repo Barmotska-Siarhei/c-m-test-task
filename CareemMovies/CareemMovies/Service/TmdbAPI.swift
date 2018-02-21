@@ -25,11 +25,11 @@ class TmdbAPI: FetchRequester {
         self.responseParser = responseParser
     }
     
-    func fetchMoviesList(by name: String, on page: Int)  -> Observable<(request: String, response: MoviesResponse)> {
+    func fetchMoviesList(by name: String, on page: Int)  -> Observable<(request: String, response: FetchResult)> {
         let url = tmdbUrl(by: name, on: page)
         
         //usage of Observable helps to forvard outside valid parsed data or error
-        return Observable<(request: String, response: MoviesResponse)>.create({[unowned self] (observer) -> Disposable in
+        return Observable<(request: String, response: FetchResult)>.create({[unowned self] (observer) -> Disposable in
             Alamofire.request(url).responseData {(response) in
                 DispatchQueue.global(qos: .default).async {[weak self] in
                     guard let this = self else {
@@ -37,7 +37,7 @@ class TmdbAPI: FetchRequester {
                     }
                     
                     if let error = response.error {
-                        observer.onError(FetchError.networkError(error))
+                        observer.onNext((request: name, response:.error(FetchError.networkError(error))))
                         return
                     }
                     
@@ -45,12 +45,12 @@ class TmdbAPI: FetchRequester {
                     switch result {
                     case .data(let response):
                         if response.movies.count > 0 {
-                            observer.onNext((request: name, response: response))
+                            observer.onNext((request: name, response: .response(response)))
                         } else {
-                            observer.onError(FetchError.noData)
+                            observer.onNext((request: name, response:.error(FetchError.noData)))
                         }
                     case .error(let error):
-                        observer.onError(FetchError.parseError(error))
+                        observer.onNext((request: name, response:.error(FetchError.parseError(error))))
                     }
                 }
             }

@@ -19,6 +19,11 @@ enum FetchError: Error {
     case noData
 }
 
+enum FetchResult{
+    case error(FetchError)
+    case response(MoviesResponse)
+}
+
 protocol FetchRequester {
-    func fetchMoviesList(by name: String, on page: Int) -> Observable<(request: String, response: MoviesResponse)>
+    func fetchMoviesList(by name: String, on page: Int) -> Observable<(request: String, response: FetchResult)>
 }

@@ -74,6 +74,17 @@ class SearchBarView: UICollectionReusableView {
             .bind(to: self.searchBar.rx.text)
             .disposed(by: disposeBag)
         
+        suggestionsView.didSelectedItem.asObservable()
+            .subscribe(onNext: {[unowned self] (_) in
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.suggestionsView.alpha = 0
+                }, completion: { _ in
+                    self.suggestionsView.removeFromSuperview()
+                    self.suggestionsView.alpha = 1
+                })
+            })
+            .disposed(by: disposeBag)
+        
         /*This workaround helps to simalute autolayout behaviour:
           SearchBarView instance is placed on collection view header
           SuggestionsListView instance is placed in UIWindow

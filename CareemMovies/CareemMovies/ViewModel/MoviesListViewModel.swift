@@ -10,6 +10,11 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum MoviesListResult {
+    case error(Error)
+    case movie([Movie])
+}
+
 /*
  *  MoviesListViewModel class implements main business logic for fetching new movies and storing
  *  of successful request to the persistent store. RxSwif bindings allow using complex asynchronous
@@ -19,7 +24,7 @@ import RxCocoa
 class MoviesListViewModel {
     var filmName = PublishSubject<String?>()
     var displayedItem = Variable<Int>(0)
-    var movies: Observable<[Movie]> {return self.moviesArrayPublish.asObservable()}
+    var movies: Observable<MoviesListResult> {return self.moviesArrayPublish.asObservable()}
     
     private var pageNumber = Variable<Int>(1)
     private var fetchedPageNumber = Variable<Int>(0)
@@ -30,7 +35,7 @@ class MoviesListViewModel {
     private var persistentStore: AnyPersistentProvider<String>
     private let disposeBag = DisposeBag()
     private var moviesArray: [Movie] = []
-    private var moviesArrayPublish = PublishSubject<[Movie]>()
+    private var moviesArrayPublish = PublishSubject<MoviesListResult>()
     
     private var usefulSuggestionCount = 10
  
@@ -68,20 +73,25 @@ class MoviesListViewModel {
             }
             .subscribe(onNext: {[unowned self] (result) in
                 let name = result.request
-                let response = result.response
+                let resultresponse = result.response
                 
-                if self.moviesArray.count == 0 && response.totalResults > 0 {
-                    //this successful request should be saved in persistent store
-                    //for next usage as suggestion
-                    self.persistentStore.save(object: name)
+                switch resultresponse {
+                    
+                case .error(let error):
+                    // I can't invoke self.moviesArrayPublish.onError because it terminates sequence
+                    self.moviesArrayPublish.onNext(.error(error))
+                case .response(let response):
+                    if self.moviesArray.count == 0 && response.totalResults > 0 {
+                        //this successful request should be saved in persistent store
+                        //for next usage as suggestion
+                        self.persistentStore.save(object: name)
+                    }
+                    
+                    self.totalPages.value = response.totalPages
+                    self.totalMovies.value = response.totalResults
+                    self.moviesArray += response.movies
+                    self.moviesArrayPublish.onNext(.movie(self.moviesArray))
                 }
-                
-                self.totalPages.value = response.totalPages
-                self.totalMovies.value = response.totalResults
-                self.moviesArray += response.movies
-                self.moviesArrayPublish.onNext(self.moviesArray)
-                }, onError: { [unowned self] (error) in
-                    self.moviesArrayPublish.onError(error)
             })
             .disposed(by: disposeBag)
         
