@@ -19,10 +19,10 @@ class TmdbAPI: FetchRequester {
         self.responseParser = responseParser
     }
     
-    func fetchMoviesList(by name: String, on page: Int)  -> Observable<MoviesResponse> {
+    func fetchMoviesList(by name: String, on page: Int)  -> Observable<(request: String, response: MoviesResponse)> {
         let url = tmdbUrl(by: name, on: page)
         
-        return Observable<MoviesResponse>.create({[unowned self] (observer) -> Disposable in
+        return Observable<(request: String, response: MoviesResponse)>.create({[unowned self] (observer) -> Disposable in
             Alamofire.request(url).responseData {(response) in
                 DispatchQueue.global(qos: .default).async {[weak self] in
                     guard let this = self else {
@@ -32,7 +32,7 @@ class TmdbAPI: FetchRequester {
                     let result = this.responseParser.parse(data: response.data)
                     switch result {
                     case .data(let response):
-                        observer.onNext(response)
+                        observer.onNext((request: name, response: response))
                     case .error(let error):
                         observer.onError(FetchError.parseError(""))
                     }

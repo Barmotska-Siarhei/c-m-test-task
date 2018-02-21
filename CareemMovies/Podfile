@@ -7,6 +7,7 @@ target 'CareemMovies' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'Alamofire'
+  pod 'RealmSwift'
 
   target 'CareemMoviesTests' do
     inherit! :search_paths

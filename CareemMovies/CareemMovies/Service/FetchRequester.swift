@@ -14,5 +14,5 @@ enum FetchError: Error {
 }
 
 protocol FetchRequester {
-    func fetchMoviesList(by name: String, on page: Int) -> Observable<MoviesResponse>
+    func fetchMoviesList(by name: String, on page: Int) -> Observable<(request: String, response: MoviesResponse)>
 }

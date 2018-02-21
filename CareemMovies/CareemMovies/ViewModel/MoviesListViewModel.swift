@@ -21,11 +21,13 @@ class MoviesListViewModel {
     private var totalMovies = Variable<Int>(0)
     
     private var fetchAPI: FetchRequester
+    private var persistentStore: AnyPersistentProvider<String>
     private let disposeBag = DisposeBag()
     private var moviesArray = Variable<[Movie]>([])
  
-    init (fetchAPI: FetchRequester) {
+    init (fetchAPI: FetchRequester, persistentStore: AnyPersistentProvider<String>) {
         self.fetchAPI = fetchAPI
+        self.persistentStore = persistentStore
     }
     
     func startMovieFetcherDaemon() {
@@ -53,7 +55,16 @@ class MoviesListViewModel {
             .flatMapLatest { [unowned self] (pair) in
                 self.fetchAPI.fetchMoviesList(by: pair.name, on: pair.number)
             }
-            .subscribe(onNext: {[unowned self] (response) in
+            .subscribe(onNext: {[unowned self] (result) in
+                let name = result.request
+                let response = result.response
+                
+                if self.moviesArray.value.count == 0 {
+                    //this successful request should be saved in persistent store
+                    //for next usage as suggestion
+                    self.persistentStore.save(object: name)
+                }
+                
                 self.totalPages.value = response.totalPages
                 self.totalMovies.value = response.totalResults
                 self.moviesArray.value += response.movies
