@@ -10,14 +10,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/**
+ *  Subclass of UICollectionReusableView contains UISearchBar control and
+ *  is displayed inside section header of UICollectionView
+ *  After the focus getting into search bar, the suggestion list is shown,
+ *  this list hides, when focus is lost. List of suggestions is standard
+ *  array and is set outside of this class.
+ */
+
 class SearchBarView: UICollectionReusableView {
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private lazy var suggestionsView = SuggestionsListView(frame: .zero)
-    private var suggestions: [String]?
+    fileprivate lazy var suggestionsView = SuggestionsListView(frame: .zero)
+    fileprivate var suggestions: [String]?
     fileprivate var suggestionsViewHeight: Float = 200
-    
-    private let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
+  
     static let identifier = "SearchBarView"
     
     override func awakeFromNib() {
@@ -25,6 +33,7 @@ class SearchBarView: UICollectionReusableView {
         setupUI()
     }
     
+    //Single public method applies suggestions list for next displaying
     func use(suggestions: [String]?) {
         self.suggestions = suggestions
     }
@@ -36,6 +45,7 @@ class SearchBarView: UICollectionReusableView {
     }
     
     private func setupBind() {
+        //when user starts a typing just update displayed items in suggestions view
         searchBar.rx.textDidBeginEditing.asObservable()
             .map{[unowned self] in
                 return self.suggestions ?? []
@@ -43,6 +53,7 @@ class SearchBarView: UICollectionReusableView {
             .bind(to: self.suggestionsView.items)
             .disposed(by: disposeBag)
         
+        //and also display this suggestions view on screen
         searchBar.rx.textDidBeginEditing.asObservable()
             .subscribe(onNext: {[unowned self] in
                 self.window?.addSubview(self.suggestionsView)
@@ -50,12 +61,15 @@ class SearchBarView: UICollectionReusableView {
             })
             .disposed(by: disposeBag)
         
+        //when user ends a typing (search bar lost a focus) just remove suggestions view
+        //from screen
         searchBar.rx.textDidEndEditing.asObservable()
             .subscribe(onNext: {[unowned self] in
                 self.suggestionsView.removeFromSuperview()
             })
             .disposed(by: disposeBag)
         
+        //selected item from suggestions view is transmitted to search bar
         suggestionsView.didSelectedItem
             .bind(to: self.searchBar.rx.text)
             .disposed(by: disposeBag)
@@ -80,6 +94,7 @@ class SearchBarView: UICollectionReusableView {
 extension SearchBarView {
     
     fileprivate func adjustSuggestionsViewFrame() {
+        //place suggestions view under search bar and set the same width
         var rect = suggestionsView.frame
         let searchRect = self.window?.convert(self.frame, from: self.superview) ?? .zero
         rect.size.width = searchRect.size.width

@@ -9,8 +9,14 @@
 import Foundation
 import RxSwift
 
+/*
+ * Protocol FetchRequester defines common interface for fetch movies from any source
+ */
+
 enum FetchError: Error {
-    case parseError(String)
+    case networkError(Error)
+    case parseError(ParseError)
+    case noData
 }
 
 protocol FetchRequester {

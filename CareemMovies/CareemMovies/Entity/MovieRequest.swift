@@ -9,6 +9,11 @@
 import Foundation
 import RealmSwift
 
+/*
+ *  Struct MovieRequest incapsulates last successful request
+ *  and main purpose of this object is storing in Realm database
+ */
+
 class MovieRequest: Object {
     @objc dynamic var name: String = ""
     

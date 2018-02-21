@@ -9,11 +9,16 @@
 import Foundation
 import RealmSwift
 
+
+/*
+ * RealmProvider is helper class for operation with Realm database
+ */
+
 class RealmProvider {
     
-    /// Instance of Realm database according to current process. In case of tests returns instance for test database file.
-    ///
-    /// - Returns: instance of Realm
+    // Instance of Realm database according to current process. In case of tests returns instance
+    // for test database file.
+    // Returns: instance of Realm
     class func realm() -> Realm {
         if let _ = NSClassFromString("XCTest") {
             return try! Realm(configuration: Realm.Configuration(fileURL: nil,
@@ -29,7 +34,7 @@ class RealmProvider {
         }
     }
     
-    /// Clean all data in database
+    // Clean all data in database
     class func cleanDatabase() {
         let realm = RealmProvider.realm()
         try! realm.write { () -> Void in

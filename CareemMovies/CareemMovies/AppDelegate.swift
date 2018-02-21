@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: - Private
     
     private func setupRootVC() {
+        // Use coordinator to start first view controller
         window = UIWindow(frame: UIScreen.main.bounds)
         let nc = UINavigationController()
         nc.setNavigationBarHidden(true, animated: false)

@@ -11,6 +11,11 @@ import Foundation
 import RxSwift
 import Alamofire
 
+/*
+ *  Movie List ViewModel services UICollectionViewCell class and prepare data for displaying there.
+ *  I.e converts data from Movie class format to simple for displaying
+ */
+
 class MovieCellViewModel {
     private let movie: Movie
     let name = Variable<String?>(nil)
@@ -36,7 +41,7 @@ private extension MovieCellViewModel {
             return
         }
       
-        // Use Alamofire to download the image
+        //use Alamofire to download the image
         Alamofire.request(imageURL).responseData {[weak self] (response) in
             if let image = self?.image {
                 if let data = response.data {

@@ -6,14 +6,14 @@
 //  Copyright © 2018 Siarhei Barmotska. All rights reserved.
 //
 
-/*
- * Main purpose: create view model, viewcontroller, bind them and show view controller
- * and start other coordinators, if it is required
- */
-
 import Foundation
 import UIKit
 import RxSwift
+
+/*
+ *  Main purpose: create view model, viewcontroller, bind them and show view controller
+ *  and start other coordinators, if it is required
+ */
 
 class Coordinator<ResultType> {
     typealias CoordinatorType = ResultType

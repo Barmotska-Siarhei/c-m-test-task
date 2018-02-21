@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ *  Struct MoviesResponse incapsulates whole JSON response from TMDB service
+ *  Usage of "Codable" protocol from Swift 4 helps to map JSON to object properties
+ */
+
 struct MoviesResponse: Codable {
     let page: Int
     let totalPages: Int
@@ -21,6 +26,11 @@ struct MoviesResponse: Codable {
         case movies = "results"
     }
 }
+
+/*
+ *  Struct Movie incapsulates whole Movie object of MoviesResponse
+ *  Usage of "Codable" protocol from Swift 4 helps to map JSON to object properties
+ */
 
 struct Movie: Codable {
     let name: String
@@ -43,6 +53,7 @@ struct Movie: Codable {
     }
 }
 
+// Extension builds full path to image assets on the base of image size type and last path component
 extension Movie {
     func fullImagePath(for size: MoviePosterSize) -> String? {
         guard let concreteImage = imagePath else {

@@ -10,19 +10,27 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/**
+ *  Subclass of UICollectionViewCell displays data from MovieCellViewModel instance
+ *  All outlets are hidden to avoid MVC approach
+ *  After cell reuse, the binding with the model is renewed
+ */
+
 final class MovieViewCell: UICollectionViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var posterView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var posterView: UIImageView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     private var model: MovieCellViewModel?
     private var disposeBag: DisposeBag?
     
     static let identifier = "MovieViewCell"
     
+    //Single public method for cell content management
     func apply(model: MovieCellViewModel) {
         self.model = model
+        
         let bag = DisposeBag()
         disposeBag = bag
         
@@ -39,6 +47,7 @@ final class MovieViewCell: UICollectionViewCell {
             .bind(to: descriptionLabel.rx.text)
             .disposed(by: bag)
         
+        //the placeholder image is shown until real image is downloaded
         //show placeholder immidiatly
         model.image.asObservable()
             .take(1)
@@ -47,7 +56,7 @@ final class MovieViewCell: UICollectionViewCell {
             })
             .disposed(by: bag)
         
-        //show poster image with animation
+        //show poster image with animation.
         model.image.asObservable()
             .skip(1)
             .subscribe(onNext: {[weak self] (image) in
@@ -65,7 +74,7 @@ final class MovieViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
-        //unsubscribe before cell reusage
+        //release disposebag instance to unsubscribe before cell reusage
         disposeBag = nil
     }
 }

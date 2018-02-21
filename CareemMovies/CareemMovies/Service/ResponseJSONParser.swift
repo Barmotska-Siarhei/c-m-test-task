@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ * Class ResponseJSONParser adopts protocol ResponseParser and parses input Data object
+ * as JSON and after that tries to map this JSON to MoviesResponse object
+ */
+
 class ResponseJSONParser: ResponseParser {
     
     func parse(data: Data?) -> ParseResult {

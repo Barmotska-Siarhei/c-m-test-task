@@ -30,10 +30,8 @@
 		48B1C95F2036C4B800FC0D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C95E2036C4B800FC0D25 /* Assets.xcassets */; };
 		48B1C9622036C4B800FC0D25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B1C9602036C4B800FC0D25 /* LaunchScreen.storyboard */; };
 		48B1C96D2036C4B800FC0D25 /* CareemMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */; };
-		48B1C9822036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C97E2036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift */; };
 		48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */; };
 		48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */; };
-		48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */; };
 		48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1C9872036CC6600FC0D25 /* Coordinator.swift */; };
 		48E1380A203C1DE50054CA09 /* AnyPersistentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */; };
 		48E13856203D6A610054CA09 /* SuggestionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E13855203D6A600054CA09 /* SuggestionsListView.swift */; };
@@ -78,10 +76,8 @@
 		48B1C9682036C4B800FC0D25 /* CareemMoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareemMoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B1C96C2036C4B800FC0D25 /* CareemMoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareemMoviesTests.swift; sourceTree = "<group>"; };
 		48B1C96E2036C4B800FC0D25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		48B1C97E2036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+InterfaceBuilder.swift"; sourceTree = "<group>"; };
 		48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
-		48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Border.swift"; sourceTree = "<group>"; };
 		48B1C9872036CC6600FC0D25 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		48E13809203C1DE50054CA09 /* AnyPersistentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyPersistentProvider.swift; sourceTree = "<group>"; };
 		48E13855203D6A600054CA09 /* SuggestionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsListView.swift; sourceTree = "<group>"; };
@@ -218,8 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				48B1C97F2036CB9F00FC0D25 /* String+Localization.swift */,
-				48B1C9812036CB9F00FC0D25 /* UIView+Border.swift */,
-				48B1C97E2036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift */,
 				48B1C9802036CB9F00FC0D25 /* UIViewController+Storyboard.swift */,
 			);
 			path = Extension;
@@ -468,8 +462,6 @@
 				48B1C9582036C4B800FC0D25 /* AppDelegate.swift in Sources */,
 				487003D320384BB10059195F /* SearchBarView.swift in Sources */,
 				487003D5203855490059195F /* AppCoordinator.swift in Sources */,
-				48B1C9852036CB9F00FC0D25 /* UIView+Border.swift in Sources */,
-				48B1C9822036CB9F00FC0D25 /* UIView+InterfaceBuilder.swift in Sources */,
 				48B1C9842036CB9F00FC0D25 /* UIViewController+Storyboard.swift in Sources */,
 				48B1C9832036CB9F00FC0D25 /* String+Localization.swift in Sources */,
 				48B1C9882036CC6600FC0D25 /* Coordinator.swift in Sources */,

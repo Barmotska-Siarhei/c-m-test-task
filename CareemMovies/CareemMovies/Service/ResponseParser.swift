@@ -8,6 +8,12 @@
 
 import Foundation
 
+
+/*
+ * Protocol ResponseParser defines common interface for parsing Data object, which could by gotten
+ * from any source and could contain any data type (JSON, XML and etc).
+ */
+
 enum ParseError: String {
     case Empty
     case InvalidData

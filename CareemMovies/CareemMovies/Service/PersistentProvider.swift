@@ -8,6 +8,12 @@
 
 import Foundation
 
+/*
+ * Protocol PersistentProvider defines common interface for persistent storing of objects.
+ * Defines only two methods  - save single object
+ *                           - retrieve list of stored objects
+ */
+
 protocol PersistentProvider {
     associatedtype ItemType
    

@@ -9,6 +9,11 @@
 import Foundation
 import RealmSwift
 
+/*
+ * Class DataBaseProvider adopts protocol PersistentProvider and stores or loads object from
+ * Realm database.
+ */
+
 class DataBaseProvider: PersistentProvider {
     typealias ItemType = String
     

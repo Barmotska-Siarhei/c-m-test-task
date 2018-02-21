@@ -8,11 +8,18 @@
 
 import Foundation
 
-// "Type Erasure" pattern is used to resolve compile error "Protocol 'PersistentProvider' can only be used as a generic constraint because it has Self or associated type requirements"
+
+/*
+ * Class AnyPersistentProvider adopts protocol PersistentProvider
+ * Its main purpose is implementation of "Type Erasure" pattern to resolve compile
+ * error "Protocol 'PersistentProvider' can only be used as a generic constraint
+ * because it has Self or associated type requirements"
+ */
 
 class AnyPersistentProvider<ElementType>: PersistentProvider {
     typealias ItemType = ElementType
     
+    //use refference to methods of original sourceObject
     private let saveHandler: (ItemType) -> ()
     private let allObjectsHandler: () -> [ItemType]
     

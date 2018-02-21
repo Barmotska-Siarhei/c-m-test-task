@@ -10,14 +10,24 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/**
+ *  Class purpose is displayng of list of string inside UITableView
+ *  Possible application is suggestions view. Usage of RxSwift allows
+ *  the management of data source outside this class. All changes in data
+ *  source are affected immediately to cell contents. Selected ited is known
+ *  outside class over "didSelectedItem" observeble.
+ */
+
 class SuggestionsListView: UIView {
+    //main data source for TableView. Could be modified any time
     var items = Variable<[String]>([])
+    
+    //keep selected item of UITableView and could be observed outside
+    var didSelectedItem = PublishSubject<String>()
     
     private var tableView: UITableView!
     private let disposeBag = DisposeBag()
     private let reuseIdentifier = "SuggestioCell"
-    
-    var didSelectedItem = PublishSubject<String>()
     
     override init (frame : CGRect) {
         super.init(frame : frame)
@@ -32,6 +42,7 @@ class SuggestionsListView: UIView {
     //MARK: - Private
     
     private func setupUI() {
+        //table view occupies full area of view
         tableView = UITableView(frame: self.bounds, style: .plain)
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = UIView()
@@ -46,7 +57,7 @@ class SuggestionsListView: UIView {
     }
     
      private func setupBinds() {
-        //bind datasource and and
+        //bind datasource and and render table view cell
         items.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: reuseIdentifier, cellType: UITableViewCell.self)) {
                 row, text, cell in
@@ -61,5 +72,3 @@ class SuggestionsListView: UIView {
         
     }
 }
-
-

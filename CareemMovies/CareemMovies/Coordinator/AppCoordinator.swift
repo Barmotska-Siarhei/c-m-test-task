@@ -9,6 +9,11 @@
 import UIKit
 import RxSwift
 
+/*
+ *  This coordinator class creates MoviesListViewController instance, injects all dependencies there
+ *  and presents view controller on screen
+ */
+
 class AppCoordinator: Coordinator <Void>{
     
     override func start() -> Observable<Void> {
@@ -28,6 +33,8 @@ class AppCoordinator: Coordinator <Void>{
         let persistentProvider = AnyPersistentProvider<String>(sourceProvider: persistent)
         let model = MoviesListViewModel(fetchAPI: fetchAPI, persistentStore: persistentProvider)
         let moviesVC = MoviesListViewController.create(withViewModel: model)
-        nc.setViewControllers([moviesVC], animated: true)        
+        
+        //show in navigation controller
+        nc.setViewControllers([moviesVC], animated: true)
     }
 }

@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/*
+ * Convenient extension of UIViewController class for creating UIViewController instance from storyboard
+ */
+
 extension UIViewController {
     class func instantiateFromStoryboard(storyboardName: String, storyboardId: String) -> Self {
         return instantiateFromStoryboardHelper(storyboardName: storyboardName, storyboardId: storyboardId)
