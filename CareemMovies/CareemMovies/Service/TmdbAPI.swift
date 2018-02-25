@@ -30,7 +30,8 @@ class TmdbAPI: FetchRequester {
         
         //usage of Observable helps to forvard outside valid parsed data or error
         return Observable<(request: String, response: FetchResult)>.create({[unowned self] (observer) -> Disposable in
-            Alamofire.request(url).responseData {(response) in
+            var request = Alamofire.request(url)
+            request.responseData {(response) in
                 DispatchQueue.global(qos: .default).async {[weak self] in
                     guard let this = self else {
                             return
@@ -55,7 +56,9 @@ class TmdbAPI: FetchRequester {
                 }
             }
             
-            return Disposables.create()
+            return Disposables.create() {
+                request.cancel()
+            }
         })
         
     }

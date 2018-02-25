@@ -102,10 +102,9 @@ extension MoviesListViewController: UICollectionViewDataSource {
                 //get suggestions list from persistent store and use them for suggestions view
                 searchBar.use(suggestions: model.suggestions())
                 
-                //this code combines tap on "search" button and the last text in search bar
-                //after that starts new fetch request in model
-                searchBar.searchBar.rx.searchButtonClicked
-                    .withLatestFrom(searchBar.searchBar.rx.text)
+                //bind text from search box and to filmName property of model, to start
+                //new fetch
+                searchBar.searchText
                     .bind(to: self.model.filmName)
                     .disposed(by: disposeBag)
                 

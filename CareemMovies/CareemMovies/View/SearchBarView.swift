@@ -19,7 +19,8 @@ import RxCocoa
  */
 
 class SearchBarView: UICollectionReusableView {
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    var searchText = PublishSubject<String?>()
     
     fileprivate lazy var suggestionsView = SuggestionsListView(frame: .zero)
     fileprivate var suggestions: [String]?
@@ -45,6 +46,13 @@ class SearchBarView: UICollectionReusableView {
     }
     
     private func setupBind() {
+        //this code combines tap on "search" button and the last text in search bar
+        //after that starts new fetch request in model
+        searchBar.rx.searchButtonClicked
+            .withLatestFrom(self.searchBar.rx.text)
+            .bind(to: self.searchText)
+            .disposed(by: disposeBag)
+        
         //when user starts a typing just update displayed items in suggestions view
         searchBar.rx.textDidBeginEditing.asObservable()
             .map{[unowned self] in
@@ -72,6 +80,11 @@ class SearchBarView: UICollectionReusableView {
         //selected item from suggestions view is transmitted to search bar
         suggestionsView.didSelectedItem
             .bind(to: self.searchBar.rx.text)
+            .disposed(by: disposeBag)
+        
+        //and selected item is forwarded to "searchText" property
+        suggestionsView.didSelectedItem
+            .bind(to: self.searchText)
             .disposed(by: disposeBag)
         
         suggestionsView.didSelectedItem.asObservable()
